@@ -1,0 +1,18 @@
+header{
+	margin: auto;
+	margin-bottom: 5px;
+	box-shadow: 0px 0px 5px #160142;
+	height: 75px;
+	width: 1500 px;
+}
+
+footer{
+	background-color: #000;
+	color: #FFF;
+	text-align: center;
+	height: 75px;
+	margin: auto;
+	margin-bottom: 5px;
+	width: 1500 px;
+	position: relative;
+}

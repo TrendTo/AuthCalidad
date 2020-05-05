@@ -1,0 +1,169 @@
+body {
+    font-size: 12px;
+    margin: 0;
+}
+
+.col20p {
+    width: 150px;
+}
+
+.droppable-section-header {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.droppable-section-midblue {
+    background-color: #00a3e0;
+}
+
+.drag-instruction-block i:before {
+    color: #737373;
+    background: #e0e0e0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    text-align: center;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.drag-instruction-block p {
+    font-weight: 600;
+    color: #737373;
+    font-size: 13px;
+}
+
+/* drop target state */
+[data-draggable="target"][aria-dropeffect="move"] {
+    border-color: #68b;
+    background: #fff;
+}
+
+/* draggable items */
+[data-draggable="item"] {
+    display: block;
+    list-style-type: none;
+}
+
+.draggable-module {
+    border-left: 5px solid #43b02a !important;
+    padding: 30px 10px 0;
+    font-size: 12px;
+    color: #000000;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: -2px 3px 7px 0 rgba(153, 153, 153, 0.26);
+    position: relative;
+    min-height: 128px;
+    cursor: pointer;
+    font-weight:700;
+    min-width: 100%;
+}
+
+.draggable-module:before {
+    content: "\f047"; /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    left: 8px;
+    position: absolute;
+    top: 8px;
+    color: #6d6c69;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.droppable-section .draggable-module {
+    padding: 10px 8px 8px; 
+    font-weight: 600;
+    text-align: center;
+}
+
+.text-overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px; /* fallback */
+    max-height: 70px; /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+.drop-active {
+    border-color: #aaa;
+}
+
+.drop-target {
+    /*background-color: #29e;*/
+    border-color: #fff;
+    border-style: solid;
+}
+
+.drag-drop {
+    touch-action: none;
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    transition: background-color 0.3s;
+}
+
+.drag-drop.can-drop {
+    color: #000;
+    background-color: #c7eaff;
+}
+
+.card {
+    display: flex;
+    height: 100px;
+    width: 75px;
+    border-radius: 10px;
+    box-shadow: -1px 0 10px #000; 
+    position: static;
+}
+
+/*        css para boton next         */
+a {
+    position: relative;
+    margin: auto;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #EE3769;
+    border-radius: 8px;
+    height: 2.8em;
+    width: 10em;
+    padding: 0;
+    outline: none;
+    overflow: hidden;
+    color: #EE3769;
+    -webkit-transition: color 0.3s 0.1s ease-out;
+    transition: color 0.3s 0.1s ease-out;
+    text-align: center;
+    line-height: 250%;
+  }
+  a::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: '';
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    line-height: 20em;
+    left: -5em;
+    text-align: center;
+    -webkit-transition: box-shadow 0.5s ease-out;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
+  }
+  a:hover {
+    color: #fff;
+  }
+  a:hover::before {
+    box-shadow: inset 0 0 0 10em #ee3769;
+  }
+  
+.container{
+    margin-top: 250px;
+  }
