@@ -5,7 +5,78 @@
 </head>
 <body>
     <?php
-    
+    $name = (isset($_POST['us'])) ? $_POST['us'] : "no name" ;
+    $pass = (isset($_POST['ps'])) ? $_POST['ps'] : "no pass" ;
+    if (($name && $pass) =="") {header("Location: registro.php");}
+
+    $url="https://calidad-project.firebaseio.com/users.json";
+    $query=curl_init();
+    curl_setopt($query, CURLOPT_URL, $url);
+    curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
+    $rs = curl_exec($query);
+    curl_close($query);
+
+    $user = json_decode($rs, true);
+    $auth = array();
+    foreach ($user as $key => $value) {
+        # code...
+        if ($value['user'] == $name) {
+            # code...
+            array_push($auth,$value['Patron 1']);
+            array_push($auth,$value['Patron 2']);
+            array_push($auth,$value['Patron 3']);
+        break;
+        }
+    }
+    print_r($auth);
+    echo "<hr>";
+
+    $url="https://calidad-project.firebaseio.com/imagenes/categoria.json";
+    $query=curl_init();
+    curl_setopt($query, CURLOPT_URL, $url);
+    curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
+    $rs = curl_exec($query);
+    if (curl_errno($query)) {
+        # code...
+        echo "error: ".curl_errno($query);
+        exit();
+    }else{
+        $data = json_decode($rs, true);
+    }
+    curl_close($query);
+
+
+    $elem = array();
+    foreach ($data as $key => $value) {
+        $url="https://calidad-project.firebaseio.com/imagenes/categoria/$key.json";
+        $query=curl_init();
+        curl_setopt($query, CURLOPT_URL, $url);
+        curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
+        $rs = curl_exec($query);
+        curl_close($query);
+        for ($i=0; $i < count($value); $i++) { 
+            # code...
+            array_push($elem,$value[$i]);
+        }
+    }
+
+    print_r($elem);
+
+    $aux=$auth;
+    echo "<hr>";
+    $k1 = array_search($auth[0], $elem);
+    $k2 = array_search($auth[1], $elem);
+    $k3 = array_search($auth[2], $elem);
+    unset($elem[$k1],$elem[$k2],$elem[$k3]);
+    print_r($elem);
+    echo "<hr>";
+
+    echo rand(0,count($elem))."<br>";
+    echo rand(0,count($elem))."<br>";
+    echo rand(0,count($elem))."<br>";
+    echo rand(0,count($elem))."<br>";
+
+
     ?>
     <div id="container">
         <div id="stage">
@@ -16,6 +87,7 @@
                 <div  id="tarjeta">
                     <p id="code">_</p>
                 </div>
+
                 <div class="d-inline-flex py-3 px-5" id="object">
                     <div id="ring1">
                         <div class="plane a selected">A</div>
