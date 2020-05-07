@@ -71,11 +71,15 @@
     print_r($elem);
     echo "<hr>";
 
-    echo rand(0,count($elem))."<br>";
-    echo rand(0,count($elem))."<br>";
-    echo rand(0,count($elem))."<br>";
-    echo rand(0,count($elem))."<br>";
-
+    shuffle($elem);
+    print_r($elem);
+    echo "<hr>";
+    for ($i=0; $i < 17; $i++) { 
+        # code...
+        array_push($aux,strval($elem[$i]));
+    }
+    shuffle($aux);
+    print_r($aux);
 
     ?>
     <div id="container">
