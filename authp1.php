@@ -88,11 +88,25 @@
                 <span class="card-title-blue" id="titulo">Verificacion y Autenticacion</span>
             </div>
             <div class="d-flex justify-content-center">
-                <div  id="tarjeta">
-                    <p id="code">_</p>
-                </div>
-
-                <div class="d-inline-flex py-3 px-5" id="object">
+                <!-- <div class="scene">
+                    <div class="card">
+                        <div class="card__face card__face--front">
+                            <p id="code">_</p>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <p id="code">_</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card__face card__face--front">
+                            <p id="code">_</p>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <p id="code">_</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="d-inline-flex py-3 px-5" id="object">
                     <div id="ring1">
                         <div class="plane a selected">A</div>
                         <div class="plane b">B</div>
@@ -131,15 +145,63 @@
                         <div class="plane eight">8</div>
                         <div class="plane nine">9</div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="d-flex justify-content-around py-3">
                 <a href="cryptex.php">AUTENTICATE</a>
             </div>
         </div>
     </div>
-    <link rel="stylesheet" href="css/newcryptex.css">
-    <script type="text/javascript" src="js/cryptex.js"></script>
+
+    <div class="scene2">
+  <div class="carousel">
+    <?php 
+    foreach ($aux as $key => $value) {
+    ?>
+    <div class="carousel__cell">
+        <div class="card">
+            <div class="card__face card__face--front">
+                <img src="<?php echo $value?>" alt="" height="100%" width="100%"/>
+            </div>
+            <div class="card__face card__face--back">
+                <p id="code">_</p>
+            </div>
+        </div>
+    </div>
+    <?php 
+    }
+    ?>
+  </div>
+</div>
+
+<div class="carousel-options">
+  <p>
+    <label>
+      Cells
+      <input class="cells-range" type="range" min="3" max="20" value="9" />
+    </label>
+  </p>
+  <p>
+    <button class="previous-button">Previous</button>
+    <button class="next-button">Next</button>
+  </p>
+  <p>
+    Orientation:
+    <label>
+      <input type="radio" name="orientation" value="horizontal" checked />
+      horizontal
+    </label>
+    <label>
+      <input type="radio" name="orientation" value="vertical" />
+      vertical
+    </label>
+  </p>
+</div>
+
+    <link rel="stylesheet" href="css/authp1.css">
+    <!-- <link rel="stylesheet" href="css/newcryptex.css"> -->
+    <!-- <script type="text/javascript" src="js/cryptex.js"></script> -->
+    <script type="text/javascript" src="js/authp1.js"></script>
 </body>
 
 </html>
