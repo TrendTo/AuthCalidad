@@ -154,49 +154,44 @@
     </div>
 
     <div class="scene2">
-  <div class="carousel">
-    <?php 
-    foreach ($aux as $key => $value) {
-    ?>
-    <div class="carousel__cell">
-        <div class="card">
-            <div class="card__face card__face--front">
-                <img src="<?php echo $value?>" alt="" height="100%" width="100%"/>
+        <div class="carousel">
+            <?php 
+            foreach ($aux as $key => $value) {
+            ?>
+            <div class="carousel__cell">
+                <div class="card" id="testCard">
+                    <div class="card__face card__face--front">
+                        <img src="<?php echo $value?>" alt="" height="100%" width="100%"/>
+                    </div>
+                    <div class="card__face card__face--back">
+                        <p id="code">_</p>
+                    </div>
+                </div>
             </div>
-            <div class="card__face card__face--back">
-                <p id="code">_</p>
-            </div>
+            <?php 
+            }
+            ?>
         </div>
     </div>
-    <?php 
-    }
-    ?>
-  </div>
-</div>
 
-<div class="carousel-options">
-  <p>
-    <label>
-      Cells
-      <input class="cells-range" type="range" min="3" max="20" value="9" />
-    </label>
-  </p>
-  <p>
-    <button class="previous-button">Previous</button>
-    <button class="next-button">Next</button>
-  </p>
-  <p>
-    Orientation:
-    <label>
-      <input type="radio" name="orientation" value="horizontal" checked />
-      horizontal
-    </label>
-    <label>
-      <input type="radio" name="orientation" value="vertical" />
-      vertical
-    </label>
-  </p>
-</div>
+    <div class="carousel-options">
+        <input class="cells-range" type="hidden" min="3" max="20" value="20" />
+        <p>
+            <button class="previous-button">Previous</button>
+            <button class="next-button">Next</button>
+        </p>
+        <p>
+            Orientation:
+            <label>
+            <input type="radio" name="orientation" value="horizontal"/>
+            horizontal
+            </label>
+            <label>
+            <input type="radio" name="orientation" value="vertical" checked />
+            vertical
+            </label>
+        </p>
+    </div>
 
     <link rel="stylesheet" href="css/authp1.css">
     <!-- <link rel="stylesheet" href="css/newcryptex.css"> -->

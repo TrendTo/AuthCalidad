@@ -1,8 +1,12 @@
 var card = document.querySelector('.card');
 card.addEventListener( 'click', function() {
-  card.classList.toggle('is-flipped');
+  //card.classList.toggle('is-flipped');
+  myFunction();
 });
 
+function myFunction() {
+  document.getElementById("testCard1").classList.toggle("is-flipped");
+}
 
 var carousel = document.querySelector('.carousel');
 var cells = carousel.querySelectorAll('.carousel__cell');
