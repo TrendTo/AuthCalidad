@@ -154,12 +154,12 @@
     </div>
 
     <div class="scene2">
-        <div class="carousel">
+        <div class="carousel" id="testCard">
             <?php 
             foreach ($aux as $key => $value) {
             ?>
             <div class="carousel__cell">
-                <div class="card" id="testCard">
+                <div class="card">
                     <div class="card__face card__face--front">
                         <img src="<?php echo $value?>" alt="" height="100%" width="100%"/>
                     </div>

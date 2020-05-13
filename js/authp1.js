@@ -1,13 +1,14 @@
-var card = document.querySelector('.card');
-card.addEventListener( 'click', function() {
-  //card.classList.toggle('is-flipped');
-  myFunction();
-});
+// var card = document.querySelector('.card');
+// card.addEventListener( 'click', function() {
+//   //card.classList.toggle('is-flipped');
+//   myFunction();
+// });
 
-function myFunction() {
-  document.getElementById("testCard1").classList.toggle("is-flipped");
-}
+// function myFunction() {
+//   document.getElementById("testCard1").classList.toggle("is-flipped");
+// }
 
+var x = document.getElementById("testCard").getElementsByTagName("img");
 var carousel = document.querySelector('.carousel');
 var cells = carousel.querySelectorAll('.carousel__cell');
 var cellCount; // cellCount set from cells-range input value
@@ -25,16 +26,28 @@ function rotateCarousel() {
     rotateFn + '(' + angle + 'deg)';
 }
 
+function valid(n) {
+  if (n>=0) {
+    return n;
+  }else{
+    return x.length + n;
+  }
+}
+
 var prevButton = document.querySelector('.previous-button');
 prevButton.addEventListener( 'click', function() {
   selectedIndex--;
   rotateCarousel();
+  console.log(selectedIndex);
+  testValue(valid(selectedIndex));
 });
 
 var nextButton = document.querySelector('.next-button');
 nextButton.addEventListener( 'click', function() {
   selectedIndex++;
   rotateCarousel();
+  console.log(selectedIndex);
+  testValue(valid(selectedIndex));
 });
 
 var cellsRange = document.querySelector('.cells-range');
@@ -82,3 +95,8 @@ function onOrientationChange() {
 
 // set initials
 onOrientationChange();
+
+// funciones para obtener datos
+function testValue(numero) {
+  console.log(x[numero].currentSrc);
+}
