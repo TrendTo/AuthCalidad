@@ -27,10 +27,10 @@ function rotateCarousel() {
 }
 
 function valid(n) {
-  if (n>=0) {
-    return n;
+  if ((n%x.length)>=0) {
+    return n%x.length;
   }else{
-    return x.length + n;
+    return x.length +(n%x.length);
   }
 }
 
@@ -38,7 +38,6 @@ var prevButton = document.querySelector('.previous-button');
 prevButton.addEventListener( 'click', function() {
   selectedIndex--;
   rotateCarousel();
-  console.log(selectedIndex);
   testValue(valid(selectedIndex));
 });
 
@@ -46,7 +45,6 @@ var nextButton = document.querySelector('.next-button');
 nextButton.addEventListener( 'click', function() {
   selectedIndex++;
   rotateCarousel();
-  console.log(selectedIndex);
   testValue(valid(selectedIndex));
 });
 
