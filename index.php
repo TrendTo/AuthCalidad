@@ -33,7 +33,7 @@
     ?> 
         <center>
         <h1 style="color:#8B0000;">Seleccion de imagenes</h1>
-        <form name="ingreso" action="draganddrop.php" method="POST">
+        <form name="ingreso" action="registro3.php" method="POST">
         <div class="fila">
             <div class="container">
             <input type="hidden" name="an[]" value="<?php echo $name ?>">
