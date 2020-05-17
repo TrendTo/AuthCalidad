@@ -7,11 +7,15 @@ let draggedItem = null;
 for (let i = 0; i < list_items.length; i++) {
 	const item = list_items[i];
 
+	item.addEventListener('click', function () {
+		cardImagenes(item);
+	});
+
 	item.addEventListener('dragstart', function () {
 		draggedItem = item;
 		setTimeout(function () {
 			item.style.display = 'none';
-		}, 0)
+		}, 0);
 	});
 
 	item.addEventListener('dragend', function () {
@@ -19,6 +23,7 @@ for (let i = 0; i < list_items.length; i++) {
 			draggedItem.style.display = 'block';
 			draggedItem = null;
 		}, 0);
+		cardImagenes(item);
 		imprimir(x);
 	})
 
@@ -51,4 +56,11 @@ function imprimir(n) {
 			console.log(n[item].currentSrc);
 		}
 	}
+}
+
+function cardImagenes(item) {
+	var aux=item.getElementsByTagName("img");
+	var element = document.querySelectorAll('.card');
+	element[6].style.backgroundImage = 'url("'+aux[0].currentSrc+'")';
+	console.log(aux[0].currentSrc);
 }

@@ -85,9 +85,14 @@ header {
 
 #valor {
     background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
+    border-radius: 8px;
 }
 
 #integracion {
     margin-top: 100px;
+}
+
+#texto {
+    background-color: transparent;
+    margin: unset;
 }

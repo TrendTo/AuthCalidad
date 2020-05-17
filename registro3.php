@@ -39,11 +39,11 @@
                 <header>
                     <h2>VERIFICACION Y AUTENTICACIÓN</h2>
                 </header>
-                <div class="row items" draggable="true">
+                <div class="row items">
                     <?php
                     for ($i=2; $i < count($vec) ; $i++) { 
                     ?>
-                    <div class="list-item row newItem">
+                    <div class="list-item row newItem" draggable="true">
                         <div class="card">
                         <?php
                         echo "<img src='$vec[$i]' height ='75' width='75'>";
