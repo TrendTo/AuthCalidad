@@ -34,24 +34,26 @@
         }
         curl_close($query);
         ?>
+        <div class="col-12">
+            <header>
+                <h2>VERIFICACION Y AUTENTICACIÓN</h2>
+            </header>
+        </div>
         <div class="row">
             <div class="app col-xl-6">
-                <header>
-                    <h2>VERIFICACION Y AUTENTICACIÓN</h2>
-                </header>
-                <div class="row items">
+                <div class="row items" id="arriba">
                     <?php
                     for ($i=2; $i < count($vec) ; $i++) { 
                     ?>
-                    <div class="list-item row newItem" draggable="true">
-                        <div class="card">
+                    <div class="list-item row newItem" draggable="true" id="selec">
+                        <div class="card col-12">
                         <?php
                         echo "<img src='$vec[$i]' height ='75' width='75'>";
                         ?>
                         </div>
-                        <div class="card" id='valor'>
+                        <div class="card col-12" id='valor'>
                         <?php
-                        echo "<p></p>";
+                        echo "<p id='texto'></p>";
                         ?>
                         </div>    
                     </div>

@@ -14,6 +14,7 @@ var sh;
 
 var vw;
 var vh;
+let posicion = 0;
 
 // --------------------------------------
 // DOM variables
@@ -295,8 +296,63 @@ function addKeyPressListeners() {
   document.addEventListener("keydown", onKeyPress);
 }
 
+var texto = document.querySelectorAll('.items > .list-item > .card > img');
+for (let i = 0; i < texto.length; i++) {
+  if (texto.length==0) {
+    break;
+  }else{
+    texto[i].addEventListener('click', function(){
+      console.log("El item seleccionado es: "+i);
+      posicion=i;
+    });
+  }
+}
+
+var auxxx = document.querySelectorAll('div#item > .list');
+for (let i = 0; i < auxxx.length; i++) {
+  auxxx[i].addEventListener('click', function(){
+    posicion=i;
+  });
+}
+
+function cardTexto(i) {
+  var testcry=document.querySelectorAll('.card > p#texto');	
+  console.log(testcry);
+  testcry[i].innerHTML= codeElement.innerText;
+}
+
+function imgg(i) {
+  var element = document.querySelectorAll('.card');
+  var aux = document.getElementsByTagName("img");
+  var aux2 = document.getElementById("texto");
+  console.log(aux2);
+  console.log(aux);
+  element[6].style.backgroundImage = 'url("'+aux[i].currentSrc+'")';
+}
+
 function onKeyPress(e) {
   key = e.keyCode;
+
+  if (key===13) {
+
+    // var y = document.querySelectorAll('#texto');
+    // y[posicion%y.length].innerHTML= codeElement.innerText;
+    // //textos(y[posicion%y.length],codeElement.innerText);
+    //console.log(y);
+    
+    //ultima modificacion abajo
+    var setTexto = document.querySelectorAll('.lists > .list > .list-item > .card > p#texto');
+    var setImg = document.querySelectorAll('.lists > .list > .list-item > .card > img');
+    console.log(setTexto);
+    console.log(setImg[posicion%texto.length]);
+    cardTexto(posicion%texto.length);
+    
+    for (i = 0; i < codeArray.length; i++) {
+      charElements[i].innerText = "_";
+    }
+    posicion++;
+    imgg(posicion%texto.length);
+  }
 
   // Capital letters A - Z are character codes 65 - 90
   if (key >= 65 && key <= 90) {

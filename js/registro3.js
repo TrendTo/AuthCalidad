@@ -59,8 +59,19 @@ function imprimir(n) {
 }
 
 function cardImagenes(item) {
-	var aux=item.getElementsByTagName("img");
+	var imagenSrc = item.getElementsByTagName("img");
+	var textoSrc = item.getElementsByTagName("p");
 	var element = document.querySelectorAll('.card');
-	element[6].style.backgroundImage = 'url("'+aux[0].currentSrc+'")';
-	console.log(aux[0].currentSrc);
+
+	element[6].style.backgroundImage = 'url("'+imagenSrc[0].currentSrc+'")';
+	
+	var codeElement = document.getElementById("code");
+	var charElements = codeElement.getElementsByClassName("char");
+	var nuevo = textoSrc[0].textContent;
+
+	for (j = 0; j < nuevo.length; j++) {
+		console.log('entro y el valor es: '+nuevo[j]);
+		charElements[j].innerText = nuevo[j];
+	}
+	console.log(imagenSrc[0].currentSrc);
 }

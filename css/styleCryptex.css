@@ -392,7 +392,7 @@
   
   .card {
     display: flex;
-    background-size: auto;
+    background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
@@ -402,8 +402,9 @@
   }
 
   #tarjeta .card {
-    background-color: #04d9ff;
-    box-shadow: -1rem 0 3rem #5c5c5c;
+    background-color: rgba(0, 0, 0, 0.1);
+    border:  1px solid rgba(0, 0, 0, 0.2);
+    /* box-shadow: -1rem 0 3rem #5c5c5c; */
   }
 
   /*        css para boton next         */
