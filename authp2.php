@@ -15,8 +15,8 @@
     if (!$newtest) header("Location: authp1.html");
 
     $auth = consultaPatron($name,$pass);
-    print_r($auth);
-    echo "<hr>";
+    //print_r($auth);
+    //echo "<hr>";
 
     $url="https://calidad-project.firebaseio.com/imagenes/categoria.json";
     $query=curl_init();
@@ -47,26 +47,26 @@
         }
     }
 
-    print_r($elem);
+    //print_r($elem);
 
     $aux=$auth;
-    echo "<hr>";
+    //echo "<hr>";
     $k1 = array_search($auth[0], $elem);
     $k2 = array_search($auth[1], $elem);
     $k3 = array_search($auth[2], $elem);
     unset($elem[$k1],$elem[$k2],$elem[$k3]);
-    print_r($elem);
-    echo "<hr>";
+    //print_r($elem);
+    //echo "<hr>";
 
     shuffle($elem);
-    print_r($elem);
-    echo "<hr>";
+    //print_r($elem);
+    //echo "<hr>";
     for ($i=0; $i < 17; $i++) { 
         # code...
         array_push($aux,strval($elem[$i]));
     }
     shuffle($aux);
-    print_r($aux);
+    //print_r($aux);
 
     ?>
     <div id="container">
@@ -140,25 +140,28 @@
         </div>
     </div>
 
-    <div class="scene2">
-        <div class="carousel" id="testCard">
-            <?php 
-            foreach ($aux as $key => $value) {
-            ?>
-            <div class="carousel__cell">
-                <div class="card">
-                    <div class="card__face card__face--front">
+    <div class="row">
+        <?php 
+        for ($i=0; $i < 3; $i++) { 
+        ?>
+        <div class="scene2">
+            <div class="carousel" id="testCard">
+                <?php 
+                foreach ($aux as $key => $value) {
+                ?>
+                <div class="carousel__cell">
+                    <div class="card">
                         <img src="<?php echo $value?>" alt="" height="100%" width="100%"/>
                     </div>
-                    <div class="card__face card__face--back">
-                        <p id="code">_</p>
-                    </div>
                 </div>
+                <?php 
+                }
+                ?>
             </div>
-            <?php 
-            }
-            ?>
         </div>
+        <?php 
+        }
+        ?>
     </div>
 
     <div class="carousel-options">

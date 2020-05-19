@@ -9,6 +9,7 @@
 // }
 
 var x = document.getElementById("testCard").getElementsByTagName("img");
+var item = document.querySelectorAll('.carousel');
 var carousel = document.querySelector('.carousel');
 var cells = carousel.querySelectorAll('.carousel__cell');
 var cellCount; // cellCount set from cells-range input value
@@ -18,12 +19,13 @@ var cellHeight = carousel.offsetHeight;
 var isHorizontal = true;
 var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
 var radius, theta;
+let pos = 0;
 // console.log( cellWidth, cellHeight );
 
 function rotateCarousel() {
   var angle = theta * selectedIndex * -1;
-  carousel.style.transform = 'translateZ(' + -radius + 'px) ' + 
-    rotateFn + '(' + angle + 'deg)';
+  console.log(item);
+  item[pos%item.length].style.transform = 'translateZ(' + -radius + 'px) ' + rotateFn + '(' + angle + 'deg)';
 }
 
 function valid(n) {
@@ -93,8 +95,20 @@ function onOrientationChange() {
 
 // set initials
 onOrientationChange();
+seleccion();
 
 // funciones para obtener datos
 function testValue(numero) {
   console.log(x[numero].currentSrc);
 }
+
+function seleccion() {
+  for (let i = 0; i < item.length; i++) {
+    item[i].addEventListener('click', function(){
+      console.log("div presionado es: "+i);
+      pos=i;
+    });
+  }
+}
+
+fun
