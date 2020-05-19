@@ -5,29 +5,16 @@
 </head>
 <body>
     <?php
-    $name = (isset($_POST['us'])) ? $_POST['us'] : "no name" ;
-    $pass = (isset($_POST['ps'])) ? $_POST['ps'] : "no pass" ;
-    if (($name && $pass) =="") {header("Location: registro.php");}
+    require_once("valid.php");
 
-    $url="https://calidad-project.firebaseio.com/users.json";
-    $query=curl_init();
-    curl_setopt($query, CURLOPT_URL, $url);
-    curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
-    $rs = curl_exec($query);
-    curl_close($query);
+    $name = (isset($_POST['us'])) ? $_POST['us'] : "" ;
+    $pass = (isset($_POST['ps'])) ? $_POST['ps'] : "" ;
+    if (($name && $pass) =="") {header("Location: authp1.html");}
 
-    $user = json_decode($rs, true);
-    $auth = array();
-    foreach ($user as $key => $value) {
-        # code...
-        if ($value['user'] == $name) {
-            # code...
-            array_push($auth,$value['Patron 1']);
-            array_push($auth,$value['Patron 2']);
-            array_push($auth,$value['Patron 3']);
-        break;
-        }
-    }
+    $newtest = consultaUsuario($name,$pass);
+    if (!$newtest) header("Location: authp1.html");
+
+    $auth = consultaPatron($name,$pass);
     print_r($auth);
     echo "<hr>";
 
