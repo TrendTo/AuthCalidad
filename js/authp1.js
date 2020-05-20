@@ -7,7 +7,8 @@
 // function myFunction() {
 //   document.getElementById("testCard1").classList.toggle("is-flipped");
 // }
-
+let pos = 0;
+let col = [0,0,0];
 var x = document.getElementById("testCard").getElementsByTagName("img");
 var item = document.querySelectorAll('.carousel');
 var carousel = document.querySelector('.carousel');
@@ -16,10 +17,10 @@ var cellCount; // cellCount set from cells-range input value
 var selectedIndex = 0;
 var cellWidth = carousel.offsetWidth;
 var cellHeight = carousel.offsetHeight;
-var isHorizontal = true;
+var isHorizontal = false;
 var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
 var radius, theta;
-let pos = 0;
+
 // console.log( cellWidth, cellHeight );
 
 function rotateCarousel() {
@@ -28,55 +29,44 @@ function rotateCarousel() {
   item[pos%item.length].style.transform = 'translateZ(' + -radius + 'px) ' + rotateFn + '(' + angle + 'deg)';
 }
 
-function valid(n) {
-  if ((n%x.length)>=0) {
-    return n%x.length;
+function valid(n,xn) {
+  if ((n%xn.length)>=0) {
+    return n%xn.length;
   }else{
-    return x.length +(n%x.length);
+    return xn.length +(n%xn.length);
   }
 }
 
-var prevButton = document.querySelector('.previous-button');
-prevButton.addEventListener( 'click', function() {
-  selectedIndex--;
-  rotateCarousel();
-  testValue(valid(selectedIndex));
-});
-
-var nextButton = document.querySelector('.next-button');
-nextButton.addEventListener( 'click', function() {
-  selectedIndex++;
-  rotateCarousel();
-  testValue(valid(selectedIndex));
+document.addEventListener("keyup", function(e){
+  var key = e.keyCode
+  console.log(key);
+  if (key==37) {
+    pos--;
+    selectedIndex=col[valid(pos,item)];
+  }
+  if (key==38) {
+    selectedIndex--;
+    col[valid(pos,item)]=selectedIndex;
+    rotateCarousel();
+    testValue(valid(selectedIndex,x));
+    parametros();
+  }
+  if (key==39) {
+    pos++;
+    selectedIndex=col[valid(pos,item)];
+  }
+  if (key==40) {
+    selectedIndex++;
+    col[valid(pos,item)]=selectedIndex;
+    rotateCarousel();
+    testValue(valid(selectedIndex,x));
+    parametros();
+  }
 });
 
 var cellsRange = document.querySelector('.cells-range');
 cellsRange.addEventListener( 'change', changeCarousel );
 cellsRange.addEventListener( 'input', changeCarousel );
-
-
-
-function changeCarousel() {
-  cellCount = cellsRange.value;
-  theta = 360 / cellCount;
-  var cellSize = isHorizontal ? cellWidth : cellHeight;
-  radius = Math.round( ( cellSize / 2) / Math.tan( Math.PI / cellCount ) );
-  for ( var i=0; i < cells.length; i++ ) {
-    var cell = cells[i];
-    if ( i < cellCount ) {
-      // visible cell
-      cell.style.opacity = 1;
-      var cellAngle = theta * i;
-      cell.style.transform = rotateFn + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
-    } else {
-      // hidden cell
-      cell.style.opacity = 0;
-      cell.style.transform = 'none';
-    }
-  }
-
-  rotateCarousel();
-}
 
 var orientationRadios = document.querySelectorAll('input[name="orientation"]');
 ( function() {
@@ -99,7 +89,9 @@ seleccion();
 
 // funciones para obtener datos
 function testValue(numero) {
+  console.log(numero);
   console.log(x[numero].currentSrc);
+  return x[numero].currentSrc;
 }
 
 function seleccion() {
@@ -111,4 +103,36 @@ function seleccion() {
   }
 }
 
-fun
+function changeCarousel() {
+  cellCount = cellsRange.value;
+  theta = 360 / cellCount;
+  var cellSize = isHorizontal ? cellWidth : cellHeight;
+  radius = Math.round( ( cellSize / 2) / Math.tan( Math.PI / cellCount ) );
+  for (let j = 0; j < item.length; j++) {
+    var contenedor = item[j].querySelectorAll('.carousel__cell');
+    for ( var i = 0; i < contenedor.length; i++ ) {
+      console.log(contenedor[i]);
+      var cell = contenedor[i];
+      if ( i < cellCount ) {
+        // visible cell
+        cell.style.opacity = 1;
+        var cellAngle = theta * i;
+        cell.style.transform = rotateFn + '(' + cellAngle + 'deg) translateZ(' + radius + 'px)';
+      } else {
+        // hidden cell
+        cell.style.opacity = 0;
+        cell.style.transform = 'none';
+      }
+    }
+  }
+  rotateCarousel();
+}
+
+function parametros() {
+  var n1 = item[0].querySelectorAll('img');
+  var n2 = item[1].querySelectorAll('img');
+  var n3 = item[2].querySelectorAll('img');
+  document.valores.patron1.value = n1[valid(col[0],x)].currentSrc;
+  document.valores.patron2.value = n2[valid(col[1],x)].currentSrc;
+  document.valores.patron3.value = n3[valid(col[2],x)].currentSrc;
+}

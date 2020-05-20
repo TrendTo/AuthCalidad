@@ -12,35 +12,14 @@
     transform-style: preserve-3d;
     }
 
-.card__face {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    backface-visibility: hidden;
-    }
-
-.card__face--front {
-    background: red;
-}
-
-.card__face--back {
-    background: blue;
-    transform: rotateY( 180deg );
-}
-
-.card.is-flipped {
-    transform: rotateY(180deg);
-}
-
 /*/////////////////////////////////////////////*/
 
 .scene2 {
     border: 1px solid #CCC;
-    margin: 40px 0;
     position: relative;
     width: 210px;
     height: 140px;
-    margin: 80px auto;
+    margin: 30px;
     overflow: hidden;
   }
   
@@ -95,4 +74,12 @@
     position: relative;
     z-index: 2;
     background: hsla(0, 0%, 100%, 0.8);
+  }
+
+  .replica{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 15px 30px;
+    border-radius: 20px;
+    background-color: darkturquoise;
   }

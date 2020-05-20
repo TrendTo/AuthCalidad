@@ -28,6 +28,8 @@ var obj = document.getElementById("object");
 var ringElements = obj.getElementsByClassName("ring");
 var ring = document.getElementById("ring1");
 
+var pagina = document.getElementById('cardImagen');
+
 // --------------------------------------
 // Cryptex rings variables
 // --------------------------------------
@@ -106,7 +108,10 @@ function initialize() {
 
   trackKeyboardInput();
   displayRingSelected();
-  addMouseEventListeners();
+  //addMouseEventListeners();
+  if (pagina!=null) {
+    autenticar();
+  }
   // displayHints();
 }
 
@@ -334,7 +339,9 @@ function onKeyPress(e) {
   key = e.keyCode;
 
   if (key===13) {
-
+    if (pagina!=null) {
+      console.log('genial');
+    }else{
     // var y = document.querySelectorAll('#texto');
     // y[posicion%y.length].innerHTML= codeElement.innerText;
     // //textos(y[posicion%y.length],codeElement.innerText);
@@ -352,6 +359,7 @@ function onKeyPress(e) {
     }
     posicion++;
     imgg(posicion%texto.length);
+    }
   }
 
   // Capital letters A - Z are character codes 65 - 90
@@ -814,4 +822,12 @@ function toggleClassName(inElement, inClassName) {
   if (hasClassName(inElement, inClassName))
     removeClassName(inElement, inClassName);
   else addClassName(inElement, inClassName);
+}
+
+function autenticar() {
+  var im = document.getElementsByTagName('img');
+  var element = document.querySelectorAll('.card');
+  console.log(element);
+  console.log(im[0].currentSrc);
+  element[1].style.backgroundImage = "url('"+im[0].currentSrc+"')";
 }
