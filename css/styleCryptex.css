@@ -73,17 +73,14 @@
     border-style: solid;
     border-width: 1px;
     border-color: #584283;
-    margin-top: 75px;
+    margin: 35px;
     width: calc(var(--ring-spacing) * var(--num-rings));
     counter-reset: ring;
   }
   
   .ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 17px;
-    margin-left: 13px;
+    margin-top: 8px;
+    margin-left: 20px;
     height: var(--plane-size);
     width: var(--plane-size);
     -webkit-transform-style: preserve-3d;
@@ -392,6 +389,8 @@
   #tarjeta {
     position: relative;
     display: flex;
+    min-width: 100%;
+    justify-content: center;
   }
   
   .card {

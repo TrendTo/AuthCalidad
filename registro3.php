@@ -10,6 +10,9 @@
 
         $vec=array();
         $vec=$_POST['an'];
+        if (empty($vec)) {
+            header("Location: registro2.php");
+        }
         ?>
         <div class="work">
             <div class="col-12">
