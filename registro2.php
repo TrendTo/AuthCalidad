@@ -8,6 +8,7 @@
     <body>
     
     <?php
+    require_once("valid.php");
     ///////////////////////////////////////////////// TRATANDO DE VALIDAR 
     $name = (isset($_POST['us'])) ? $_POST['us'] : "no name" ;
     $pass = (isset($_POST['ps'])) ? $_POST['ps'] : "no pass" ;
@@ -17,23 +18,17 @@
     if (($name && $pass && $cate) =="") {header("Location: registro.php");}
 
     $url="https://calidad-project.firebaseio.com/imagenes/categoria/$cate.json";
-    $query=curl_init();
-    curl_setopt($query, CURLOPT_URL, $url);
-    curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
-    $rs = curl_exec($query);
-    curl_close($query);
-
-    $data = json_decode($rs, true);
+    $data = conecFirebase($url);
     $elem = array();
+
     for ($i=0; $i < count($data); $i++) { 
-        # code...
         array_push($elem,strval($data[$i]));
     }
       /////////////////////////////////////////////////////////////
     ?> 
         <center>
         <h1 style="color:#8B0000;">Seleccion de imagenes</h1>
-        <form name="ingreso" action="registro3.php" method="POST">
+        <form name="ingreso" action="registro3.php" method="POST" >
         <div class="fila">
             <div class="container">
             <input type="hidden" name="an[]" value="<?php echo $name ?>">
@@ -73,12 +68,13 @@
         }
         ?>
             <div class="fila next">
-                <input type="submit" value="Enviar datos">
+                <input type="submit" value="Enviar datos" onclick="mensaje()">
             </div>
             </form>
         </center>
         <script language="JavaScript">
             <!--
+            var val=0;
             function inhabilitar() {
                 alert("Boton derecho deshabilitado para proteccion de codigo!");
                 return false;
@@ -88,6 +84,12 @@
                 elementos[i].addEventListener("click", contarSeleccionados, false);
             };
             
+            function mensaje(){
+                if(val<3){
+                    alert("Debe Seleccionar 3 elementos");
+                    event.preventDefault();
+                }
+            };
             // Esta función se ejecuta cada vez que se pulsa sobre un checkbox
             function contarSeleccionados(event) {
                 count=0;
@@ -95,6 +97,7 @@
                 for(var i=0;i<elementos.length;i++) {
                     if(elementos[i].checked)
                         count++;
+                        val=count;
                 };
             
                 // Si hay mas de 5 checkbox seleccionados, cancelamos el click

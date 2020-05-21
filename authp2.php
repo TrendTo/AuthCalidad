@@ -121,6 +121,8 @@
                     <input type="hidden" name="patron1" value="" />
                     <input type="hidden" name="patron2" value="" />
                     <input type="hidden" name="patron3" value="" />
+                    <input type="hidden" name="uss" value="<?php echo $name ?>">
+                    <input type="hidden" name="pss" value="<?php echo $pass ?>">
                     <input type="submit" value="AUTENTICATE" onclick="parametros();"/>
                 </form>
             </div>

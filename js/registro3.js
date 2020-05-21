@@ -75,3 +75,15 @@ function cardImagenes(item) {
 	}
 	console.log(imagenSrc[0].currentSrc);
 }
+
+function setValor(){
+	var testcry=document.querySelectorAll('.lists > .list > .list-item > .card > p#texto');
+	if (testcry.length<3) {
+		alert('Organice y posiciones las tarjetas en los campos requeridos');
+		event.preventDefault();
+	}else{
+	document.valor.valor1.value = testcry[0].textContent;
+	document.valor.valor2.value = testcry[1].textContent;
+	document.valor.valor3.value = testcry[2].textContent;
+	}
+  }

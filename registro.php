@@ -10,18 +10,10 @@
 <body>
 
     <?php
-    $url="https://calidad-project.firebaseio.com/imagenes/categoria.json";
-    $query=curl_init();
-    curl_setopt($query, CURLOPT_URL, $url);
-    curl_setopt($query, CURLOPT_RETURNTRANSFER, true);
-    $rs = curl_exec($query);
-    if (curl_errno($query)) {
-        echo "error: ".curl_errno($query);
-        exit();
-    }else{
-        $data = json_decode($rs, true);
-    }
-    curl_close($query);
+    require_once("valid.php");
+
+    $url ="https://calidad-project.firebaseio.com/imagenes/categoria.json";
+    $data = conecFirebase($url);
     ?>
 
     <form class="formulario" action="registro2.php" method="POST">
