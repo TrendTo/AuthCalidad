@@ -26,8 +26,14 @@
     }
       /////////////////////////////////////////////////////////////
     ?> 
+        <div>
+            <h1>Seleccion de imagenes</h1>
+            <h2>Nota Importante:</h2>
+            <ul>
+                <li>Para continuar con el proceso seleccione <strong>3 imagenes</strong></li>
+            </ul>
+        </div>
         <center>
-        <h1 style="color:#8B0000;">Seleccion de imagenes</h1>
         <form name="ingreso" action="registro3.php" method="POST" >
         <div class="fila">
             <div class="container">

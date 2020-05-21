@@ -17,11 +17,19 @@
         <div class="work">
             <div class="col-12">
                 <header>
-                    <h2>VERIFICACION Y AUTENTICACIÓN</h2>
+                    <h1>Verificación Y Autenticación</h1>
                 </header>
             </div>
             <div class="row">
                 <div class="app col-xl-6">
+                    <div class="col-12" style="margin: 0px 150px">
+                        <h2>Nota Importante:</h2>
+                        <ul>
+                            <li>Agregue valor a las imagenes seleccionadas</li>
+                            <li>Puede ayudarse de la vista preliminar</li>
+                            <li>Arrastre y ubique las imagenes generando un patrón</li>
+                        </ul>
+                    </div>
                     <div class="row items" id="arriba">
                         <?php
                         for ($i=2; $i < count($vec) ; $i++) { 
@@ -47,7 +55,7 @@
                             for ($i=0; $i < 3; $i++) { 
                         ?>
                         <div class="list">
-                            <p> Patron Posicion <?php echo $i+1;?></p>
+                            <p> Elemento <?php echo $i+1;?></p>
                         </div>
                         <?php    
                             }
@@ -59,7 +67,7 @@
                     require_once("cryp.html");
                     ?>
                 </div>
-                <div>
+                <div class="col-12" style="display:flex; justify-content: center">
                     <form name="valor" action="valid.php" method="POST">
                         <?php
                         for ($i=0; $i < count($vec); $i++) { 

@@ -1,3 +1,7 @@
+body{
+  margin: 20px 200px;
+}
+
 .scene {
     width: 200px;
     height: 260px;
@@ -82,4 +86,24 @@
     margin: 15px 30px;
     border-radius: 20px;
     background-color: darkturquoise;
+  }
+
+  input[type="submit"] {
+    position: relative;
+    margin: auto;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #EE3769;
+    border-radius: 8px;
+    height: 2.8em;
+    width: 10em;
+    padding: 0;
+    outline: none;
+    overflow: hidden;
+    background-color: white;
+    color: #EE3769;
+    -webkit-transition: color 0.3s 0.1s ease-out;
+    transition: color 0.3s 0.1s ease-out;
+    text-align: center;
+    line-height: 250%;
   }

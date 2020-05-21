@@ -24,8 +24,12 @@
     ?>
     <div id="container">
         <div id="stage">
-            <div class="d-flex justify-content-start py-3" id="titulo">
-                <span class="card-title-blue" id="titulo">Verificacion y Autenticacion</span>
+            <div style="margin: 20px 200px;" id="titulo">
+                <h1 style="margin: 20px 0px">Autenticacion</h1>
+                <h2>Nota importante</h2>
+                <ul>
+                    <li>Ingrese el valor asignado a la imagen que se muestra</li>
+                </ul>
             </div>
             <div class="card" id="cardImagen">
                 <img src="<?php echo $datos[0]; ?>"/>
@@ -40,11 +44,12 @@
                     <input type="hidden" name="est" value="<?php echo $estado; ?>">
                     <input type="hidden" name="carta" value="<?php echo $datos[0]; ?>">
                     <input type="hidden" name="val" value="">
-                    <input type="submit" value="Autenticate" onclick="pushLink()">
+                    <input type="submit" value="Autenticate" onclick="pushLink()" style="font-family:none">
                 </form>
             </div>
         </div>
     </div>
+    <link rel="stylesheet" href="css/authp3.css">
     <script type="text/javascript" src="js/authp3.js"></script>
 </body>
 </html>

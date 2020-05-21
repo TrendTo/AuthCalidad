@@ -14,7 +14,7 @@
     $newtest = consultaUsuario($name,$pass);
     $auth = consultaPatron($name,$pass);
     if (empty($auth)) {echo "entro"; header("Location: authp1.html");}
-    print_r($auth);
+    //print_r($auth);
     //echo "<hr>";
 
     $url="https://calidad-project.firebaseio.com/imagenes/categoria.json";
@@ -70,8 +70,12 @@
     ?>
     <div id="container">
         <div id="stage">
-            <div class="d-flex justify-content-start py-3" id="titulo">
-                <span>Verificacion y Autenticacion</span>
+            <div id="titulo">
+                <h1 style="margin: 20px 0px;">Autenticación</h1>
+                <h2>Nota Importante</h2>
+                <ul>
+                    <li>Establezca el patron de imagenes con los cuales se ha registrado</li>
+                </ul>
             </div>
             <div class="d-flex justify-content-around">
                 <div class="row replica">
