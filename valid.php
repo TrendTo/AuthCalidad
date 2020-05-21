@@ -23,7 +23,7 @@
         creacionUser($datanew);
     }
     if ($ua&&$pa&&$card) {
-        compareValue($card,$ua,$pa,$text);
+        compareValue($card,$ua,$pa,$text,$ea);
     }
 
     function consultaUsuario($name, $pass){
@@ -128,7 +128,7 @@
         }
     }
 
-    function compareValue($dato,$ua,$pa,$tex){
+    function compareValue($dato,$ua,$pa,$tex,$estado){
         $t=0;
         $e1=consultaPatron($ua,$pa);
         $e2=consultaValores($ua,$pa);
@@ -143,7 +143,7 @@
         echo "El valor de i es: ".$t;
         echo "El valor ingresado es: ".$tex;
         echo "y el valor a comparar es:".$e2[$t];
-        if ($e2[$t]==$tex) {
+        if ($e2[$t]==$tex&&$estado==1) {
             echo "codigo correcto";
         }else{
             echo "ya valio madres";

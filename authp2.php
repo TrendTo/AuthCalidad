@@ -12,10 +12,9 @@
     if (($name && $pass) =="") {header("Location: authp1.html");}
 
     $newtest = consultaUsuario($name,$pass);
-    if (!$newtest) header("Location: authp1.html");
-
     $auth = consultaPatron($name,$pass);
-    //print_r($auth);
+    if (empty($auth)) {echo "entro"; header("Location: authp1.html");}
+    print_r($auth);
     //echo "<hr>";
 
     $url="https://calidad-project.firebaseio.com/imagenes/categoria.json";
