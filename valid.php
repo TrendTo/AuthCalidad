@@ -132,21 +132,25 @@
         $t=0;
         $e1=consultaPatron($ua,$pa);
         $e2=consultaValores($ua,$pa);
-        print_r($e1);
-        print_r($e2);
-        echo $dato;
+        //print_r($e1);
+        //print_r($e2);
+        //echo $dato;
         for ($i=0; $i < count($e1); $i++) { 
             if ($e1[$i]==$dato) {
                 $t=$i;
             }
         }
-        echo "El valor de i es: ".$t;
-        echo "El valor ingresado es: ".$tex;
-        echo "y el valor a comparar es:".$e2[$t];
+        //echo "El valor de i es: ".$t;
+        //echo "El valor ingresado es: ".$tex;
+        //echo "y el valor a comparar es:".$e2[$t];
         if ($e2[$t]==$tex&&$estado==1) {
-            echo "codigo correcto";
+            header("Location: validado.html");
         }else{
-            echo "ya valio madres";
+            if ($estado==1) {
+                header("Location: novalido.html");
+            }else{
+                header("Location: authp1.html");
+            }
         }
     }
     ?>
